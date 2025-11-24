@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "0ec33f47-7608-4cef-a959-708aa96c1520",
+		"name": "Express-Lib-Reader",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42396876"
+	},
+	"item": [
+		{
+			"name": "getAllReaders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3050/api/readers",
+					"host": [
+						"localhost"
+					],
+					"port": "3050",
+					"path": [
+						"api",
+						"readers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addReader",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 123456800,\r\n    \"name\": \"Ann\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3050/api/readers",
+					"host": [
+						"localhost"
+					],
+					"port": "3050",
+					"path": [
+						"api",
+						"readers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getReaderById",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3050/api/readers/123456799",
+					"host": [
+						"localhost"
+					],
+					"port": "3050",
+					"path": [
+						"api",
+						"readers",
+						"123456799"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "setStatus",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 123456799,\r\n    \"name\": \"Ann\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3050/api/readers?id=123456789&status=inactive",
+					"host": [
+						"localhost"
+					],
+					"port": "3050",
+					"path": [
+						"api",
+						"readers"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "123456789"
+						},
+						{
+							"key": "status",
+							"value": "inactive"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
