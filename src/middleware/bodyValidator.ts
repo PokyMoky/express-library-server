@@ -10,4 +10,19 @@ export const bodyValidator = (schema: Joi.ObjectSchema) => {
     }
     next();
   }
-}
+};
+
+export const readerIdValidator = (req: Request, res: Response, next: NextFunction) => {
+  const {id} = req.query;
+
+  if (!id) {
+    throw new HttpError(400, "ID required");
+  }
+
+  const parsedId = Number(id);
+  if (isNaN(parsedId) || parsedId < 100_000_000 || parsedId > 999_999_999) {
+    throw new HttpError(400, "Invalid ID number");
+  }
+
+  next();
+};

@@ -1,15 +1,21 @@
 export type ReaderDto = {
   id: number;
-  name: string;
+  username: string;
+  email: string;
+  password: string;
+  birthDate: string;
+}
+
+export type UpdateReaderDto = {
+  username?: string;
+  email?: string;
+  birthDate?: string;
 }
 
 export type Reader = {
-  id: number;
-  name: string;
-  status: ReaderStatus;
-}
-
-export enum ReaderStatus {
-  ACTIVE = 'active',
-  INACTIVE = 'inactive',
+  _id: number;
+  username: string;
+  email: string;
+  passHash: string;
+  birthDate: string;
 }

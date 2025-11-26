@@ -1,41 +1,19 @@
 {
 	"info": {
-		"_postman_id": "0ec33f47-7608-4cef-a959-708aa96c1520",
-		"name": "Express-Lib-Reader",
+		"_postman_id": "54836419-1e33-4445-a130-d2d42dc0593e",
+		"name": "Express-Lib-Account",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "42396876"
 	},
 	"item": [
 		{
-			"name": "getAllReaders",
+			"name": "createAccountPositive",
 			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3050/api/readers",
-					"host": [
-						"localhost"
-					],
-					"port": "3050",
-					"path": [
-						"api",
-						"readers"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "addReader",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 123456800,\r\n    \"name\": \"Ann\"\r\n}",
+					"raw": "{\r\n    \"readerId\": 123456789,\r\n    \"username\": \"Ann\",\r\n    \"email\": \"test1@test.com\",\r\n    \"password\": \"pass111\",\r\n    \"birthDate\": \"1976-12-12\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -43,77 +21,128 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3050/api/readers",
+					"raw": "localhost:3050/api/account",
 					"host": [
 						"localhost"
 					],
 					"port": "3050",
 					"path": [
 						"api",
-						"readers"
+						"account"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "getReaderById",
+			"name": "getAccById",
 			"request": {
-				"auth": {
-					"type": "noauth"
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3050/api/readers/123456799",
+					"raw": "localhost:3050/api/account/byId?id=123456789",
 					"host": [
 						"localhost"
 					],
 					"port": "3050",
 					"path": [
 						"api",
-						"readers",
-						"123456799"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "setStatus",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "PATCH",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": 123456799,\r\n    \"name\": \"Ann\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3050/api/readers?id=123456789&status=inactive",
-					"host": [
-						"localhost"
-					],
-					"port": "3050",
-					"path": [
-						"api",
-						"readers"
+						"account",
+						"byId"
 					],
 					"query": [
 						{
 							"key": "id",
 							"value": "123456789"
-						},
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removeAccount",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3050/api/account?id=123456789",
+					"host": [
+						"localhost"
+					],
+					"port": "3050",
+					"path": [
+						"api",
+						"account"
+					],
+					"query": [
 						{
-							"key": "status",
-							"value": "inactive"
+							"key": "id",
+							"value": "123456789"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "changePwd",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"readerId\": 123456789,\r\n    \"password\": \"pass111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3050/api/account/password",
+					"host": [
+						"localhost"
+					],
+					"port": "3050",
+					"path": [
+						"api",
+						"account",
+						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editAccountPositive",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Ann\",\r\n    \"email\": \"test@test.ru\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3050/api/account/update?id=123456789",
+					"host": [
+						"localhost"
+					],
+					"port": "3050",
+					"path": [
+						"api",
+						"account",
+						"update"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "123456789"
 						}
 					]
 				}

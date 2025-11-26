@@ -10,13 +10,12 @@ dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 export const pool = createPool();
 
-// mongoose.connect(process.env.MONGO_URI).then(() => {
-//   console.log("Connected to MongoDB");
-//   launchServer();
-// })
-// .catch((err) => {
-//   console.log(err);
-//   process.exit(1);
-// });
+mongoose.connect(process.env.ACCOUNT_DB as string).then(() => {
+  console.log("Connected to MongoDB");
+  launchServer();
+})
+.catch((err) => {
+  console.log(err);
+});
 
-launchServer();
+// launchServer();

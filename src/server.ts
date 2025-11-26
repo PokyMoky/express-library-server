@@ -5,7 +5,7 @@ import {errorHandler} from "./errorHandler/errorHandler";
 import bookRouter from "./routers/bookRouter";
 import morgan from "morgan";
 import * as fs from "node:fs";
-import readerRouter from "./routers/readerRouter";
+import accountRouter from "./routers/accountRouter";
 
 
 export const launchServer = () => {
@@ -22,7 +22,7 @@ export const launchServer = () => {
   app.use(morgan('combined', {stream: logStream}));
 
   app.use('/api/books', bookRouter);
-  app.use('/api/readers', readerRouter);
+  app.use('/api/account', accountRouter);
 
   app.use((req, res, next) => {
     res.status(404).send('Page Not Found');
